@@ -1,0 +1,147 @@
+<!--Dinesh K Lohar 2030-->
+<!--A)Performing various Mathematical Operations-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Maths Operations</title>
+  <style>
+    p {
+      font-size: 30px;
+      font-family: Cambria;
+      font-weight: bold;
+    }
+
+    body {
+      background-image: url("bg.jpeg");
+      background-size: cover;
+    }
+
+    .button {
+      border: none;
+      color: white;
+      padding: 20px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 26px;
+      margin: 4px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+
+    .button1 {
+      background-color: white;
+      color: black;
+      border: 2px solid #4a0075;
+    }
+
+    .button1:hover {
+      background-color: #8eff24;
+      color: black;
+    }
+  </style>
+
+  <script type="text/javascript">
+    //1) Calculating Factorial
+    function factorial() {
+      var a, b, fact;
+      a = parseInt(prompt("Enter the Number: "));
+      b = 1;
+      fact = 1;
+      while (b <= a) {
+        fact = fact * b;
+        b = b + 1;
+      }
+      document.getElementById("demo").innerHTML = "Factorial of " + a + " is <br>" + fact;
+    }
+
+    //2) Finding Fibonacci Series
+    function fibonacci() {
+      var var1 = 0;
+      var var2 = 1;
+      var var3;
+      var num = prompt("Enter the limit for Series: ", 0);
+      if ((num == null) || (num == 0)) {
+        document.getElementById("demo").innerHTML = "The Fibonacci Series of " + num + " is <br> 0";
+      } else {
+        var Str1 = "The Fibonacci Series of " + num + " is <br>" + var1 + "<br>" + var2 + "<br>";
+        document.write(Str1.fontsize(6));
+        for (var i = 2; i < num; i++) {
+          var3 = var1 + var2;
+          var1 = var2;
+          var2 = var3;
+          var Str2 = var3 + "<br>";
+          document.write(Str2.fontsize(6));
+        }
+      }
+    }
+
+    //3) Displaying Prime Numbers in a given range
+    function prime_number() {
+      var first = prompt("Enter the Lower Range Number : ");
+      var last = prompt("Enter the Upper Range Number : ");
+      var i, j, isPrime;
+
+      document.write(("The Prime Numbers between " + first + " and " + last + " is <br>").fontsize(6));
+      for (i = first; i <= last; i++) {
+        if ((i == 1) || (i == 0)) {
+          continue;
+        }
+        isPrime = 1;
+        for (j = 2; j <= i / 2; j++) {
+          if (i % j == 0) {
+            isPrime = 0;
+            break;
+          }
+        }
+        if (isPrime == 1) {
+          var Str = i + "<br>";
+          document.write(Str.fontsize(6));
+        }
+      }
+    }
+
+    //4) Evaluating Expressions
+    function expressions() {
+      var exp, r;
+      exp = prompt("Enter the Expression for Evaluation:");
+      r = eval(exp);
+      document.getElementById("demo").innerHTML = "The Answer of Expression " + exp + " is <br>" + r;
+    }
+
+    //5) Calculating reverse of a number
+    function reverse() {
+
+      var n = prompt("Enter a Number : ");
+      Str = "The Reversed Number of " + n + " is <br>";
+      var digit, result = 0;
+
+      while (n) {
+        digit = n % 10;
+        result = (result * 10) + digit;
+        n = n / 10 | 0;
+      }
+      return document.getElementById("demo").innerHTML = Str + result;
+    }
+  </script>
+
+</head>
+
+<body>
+  <center>
+    <h1>MATHEMATICAL OPERATIONS</h1>
+    <br><br><br>
+    <button class="button button1" type="button" onclick="factorial()">Factorial</button>
+    <button class="button button1" type="button" onclick="fibonacci()">Fibonacci Series</button>
+    <button class="button button1" type="button" onclick="prime_number()">Prime Numbers</button>
+    <button class="button button1" type="button" onclick="expressions()">Evaluate Expression</button>
+    <button class="button button1" type="button" onclick="reverse()">Reverse of a Number</button>
+    <br><br>
+    <p id="demo"></p>
+  </center>
+
+</body>
+
+</html>
